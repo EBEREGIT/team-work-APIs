@@ -1,0 +1,32 @@
+{
+  "name": "team-work",
+  "version": "1.0.0",
+  "description": "Teamwork is an internal social network for employees of an organization. The goal of this application is to facilitate more interaction between colleagues and promote team bonding",
+  "main": "index.js",
+  "scripts": {
+    "test-init": "./node_modules/jasmine/bin/jasmine.js init",
+    "test": "./node_modules/jasmine/bin/jasmine.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EBEREGIT/team-work.git"
+  },
+  "author": "Njoku Samson Ebere (Ebereplenty)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EBEREGIT/team-work/issues"
+  },
+  "homepage": "https://github.com/EBEREGIT/team-work#readme",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.20.0",
+    "jasmine": "^3.5.0",
+    "jasmine-node": "^3.0.0"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^7.17.1",
+    "request": "^2.88.0"
+  }
+}
