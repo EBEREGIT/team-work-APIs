@@ -13,7 +13,7 @@ describe('Server', () => {
 
     it('returns Hello World', (done) => {
       request.get(baseUrl, (error, response, body) => {
-        expect(body).toBe('Hello World');
+        expect(body).toBe('Welcome to Team Work');
         done();
       });
     });
