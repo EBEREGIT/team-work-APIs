@@ -4,6 +4,9 @@
   "description": "Teamwork is an internal social network for employees of an organization. The goal of this application is to facilitate more interaction between colleagues and promote team bonding",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "test": "jasmine",
     "create": "node ./services/db createTables"
   },
   "repository": {
@@ -24,6 +27,7 @@
     "jasmine-node": "^3.0.0"
   },
   "dependencies": {
+    "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "make-runnable": "^1.3.6",
     "pg": "^7.17.1",

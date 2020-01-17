@@ -1,5 +1,5 @@
-/* eslint-disable no-console */
 /* eslint-disable linebreak-style */
+/* eslint-disable no-console */
 const pg = require('pg');
 
 // configuration details
@@ -22,13 +22,15 @@ pool.on('connect', () => {
 
 // create tables here
 const createTables = () => {
-  // articles table
+  // articles table query
   const articlesTable = `CREATE TABLE IF NOT EXISTS
         articles(
           id SERIAL PRIMARY KEY,
           title VARCHAR(128) NOT NULL,
           body TEXT NOT NULL
         )`;
+
+  // run articles table query
   pool.query(articlesTable)
     .then((res) => {
       console.log(res);
