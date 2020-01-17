@@ -1,6 +1,14 @@
-language: node_js
-node_js: 
-  - "stable"
-cache:
-  directories:
-    - "node_modules"
+{
+  "os": [
+    "linux"
+  ],
+  "cache": {
+    "directories": [
+      "node_modules"
+    ]
+  },
+  "node_js": [
+    "stable"
+  ],
+  "language": "node_js"
+}
