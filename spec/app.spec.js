@@ -5,7 +5,7 @@ const baseUrl = 'http://localhost:3000/';
 describe('Server', () => {
   describe('GET /', () => {
     it('returns status code 200', (done) => {
-      request.get(baseUrl, (error, response) => {
+      request.get(baseUrl, (error, response, back) => {
         expect(response.statusCode).toBe(200);
         done();
       });
