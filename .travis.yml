@@ -1,7 +1,4 @@
 {
-  "os": [
-    "windows"
-  ],
   "cache": {
     "directories": [
       "node_modules"
