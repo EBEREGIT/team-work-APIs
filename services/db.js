@@ -22,6 +22,31 @@ pool.on('connect', () => {
 
 // create tables here
 const createTables = () => {
+  // admins table
+  const adminsTable = `CREATE TABLE IF NOT EXISTS 
+    admins(
+      id SERIAL PRIMARY KEY,
+      firstName VARCHAR(128) NOT NULL,
+      lastName VARCHAR(128) NOT NULL,
+      email VARCHAR(128) NOT NULL,
+      password VARCHAR(128) NOT NULL,
+      gender VARCHAR(128) NOT NULL,
+      jobRole VARCHAR(128) NOT NULL,
+      department VARCHAR(128) NOT NULL,
+      address TEXT NOT NULL
+    )`;
+  // admins table query
+  pool
+    .query(adminsTable)
+    .then((res) => {
+      console.log(res);
+      pool.end();
+    })
+    .catch((err) => {
+      console.log(err);
+      pool.end();
+    });
+
   // articles table query
   const articlesTable = `CREATE TABLE IF NOT EXISTS
     articles(
