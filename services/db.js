@@ -70,12 +70,12 @@ const createTables = () => {
   const employeesTable = `CREATE TABLE IF NOT EXISTS 
     employees(
       id SERIAL PRIMARY KEY,
-      firstName VARCHAR(128) NOT NULL,
-      lastName VARCHAR(128) NOT NULL,
+      first_name VARCHAR(128) NOT NULL,
+      last_name VARCHAR(128) NOT NULL,
       email VARCHAR(128) NOT NULL,
       password VARCHAR(128) NOT NULL,
       gender VARCHAR(128) NOT NULL,
-      jobRole VARCHAR(128) NOT NULL,
+      job_role VARCHAR(128) NOT NULL,
       department VARCHAR(128) NOT NULL,
       address TEXT NOT NULL
     )`;
