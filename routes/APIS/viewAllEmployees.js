@@ -1,4 +1,4 @@
-const db = require('../services/db.js');
+const db = require('../../services/db.js');
 
 exports.viewAllEmployees = (req, res) => {
   db.pool.connect((err, client, done) => {

@@ -4,22 +4,19 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const createEmployee = require('./APIS/createEmployee');
-const viewAllEmployees = require('./APIS/viewAllEmployees');
+const authRoutes = require('./routes/authRoutes');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// default route
 app.get('/', (request, response) => {
   response.status(202).send({
-    message: 'Welcome to teamwork',
+    message: 'Welcome to teamwork APIs',
   });
 });
 
-// create employee API
-app.post('/create-user', createEmployee.createEmployee);
-
-// view all employees
-app.get('/all-user', viewAllEmployees.viewAllEmployees);
+// auth routes
+app.use('/auth', authRoutes);
 
 module.exports = app;
