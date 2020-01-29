@@ -91,16 +91,16 @@ const createTables = () => {
       pool.end();
     });
 
-  // gifs table
-  const gifsTable = `CREATE TABLE IF NOT EXISTS 
-  gifs(
-    id SERIAL PRIMARY KEY,
-    image VARCHAR(128) NOT NULL,
-    title VARCHAR(128) NOT NULL
-  )`;
-  // execute gifs table query
-  pool
-    .query(gifsTable)
+  // gif table
+  const gifsTable = `CREATE TABLE IF NOT EXISTS
+    gifs(
+      id SERIAL PRIMARY KEY,
+      title VARCHAR(128) NOT NULL,
+      image_url VARCHAR(128) NOT NULL,
+      created_on DATE NOT NULL
+    )`;
+  // gif table query
+  pool.query(gifsTable)
     .then((res) => {
       console.log(res);
       pool.end();
@@ -116,7 +116,6 @@ pool.on('remove', () => {
   process.exit(0);
 });
 
-// export pool and createTables to be accessible  from any where within the application
 module.exports = {
   createTables,
   pool,

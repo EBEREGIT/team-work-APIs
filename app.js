@@ -5,6 +5,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const authRoutes = require('./routes/authRoutes');
+const gifRoutes = require('./routes/gifRoutes');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -18,5 +19,7 @@ app.get('/', (request, response) => {
 
 // auth routes
 app.use('/auth', authRoutes);
+// gif routes
+app.use('/gifs', gifRoutes);
 
 module.exports = app;

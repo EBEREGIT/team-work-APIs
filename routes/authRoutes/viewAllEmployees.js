@@ -2,8 +2,10 @@ const db = require('../../services/db.js');
 
 exports.viewAllEmployees = (req, res) => {
   db.pool.connect((err, client, done) => {
+    // query
     const query = 'SELECT * FROM employees';
 
+    // run query
     client.query(query, (error, result) => {
       done();
 
