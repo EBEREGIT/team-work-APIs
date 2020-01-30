@@ -23,7 +23,7 @@ exports.createGIF = (request, reponse) => {
   // upload image to cloudinary
   cloudinary.uploader.upload(data.image)
     .then((image) => {
-      db.pool.connect((err, client, done) => {
+      db.pool.connect((err, client) => {
         const createdOn = new Date().toLocaleString();
         // query
         const insertQuery = 'INSERT INTO gifs (title, image_url, created_on) VALUES($1,$2,$3) RETURNING *';
@@ -43,7 +43,7 @@ exports.createGIF = (request, reponse) => {
                 createdOn: result.created_on,
                 title: result.title,
                 imageUrl: result.image_url,
-              }
+              },
             });
           })
           .catch((e) => {
