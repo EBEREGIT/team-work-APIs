@@ -6,6 +6,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const authRoutes = require('./routes/authRoutes');
 const gifRoutes = require('./routes/gifRoutes');
+const articleRoutes = require('./routes/articleRoutes');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -21,5 +22,7 @@ app.get('/', (request, response) => {
 app.use('/auth', authRoutes);
 // gif routes
 app.use('/gifs', gifRoutes);
+// gif articles
+app.use('/articles', articleRoutes);
 
 module.exports = app;

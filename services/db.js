@@ -52,7 +52,8 @@ const createTables = () => {
     articles(
       id SERIAL PRIMARY KEY,
       title VARCHAR(128) NOT NULL,
-      body TEXT NOT NULL
+      body TEXT NOT NULL,
+      created_on DATE NOT NULL
     )`;
   // run articles table query
   pool
