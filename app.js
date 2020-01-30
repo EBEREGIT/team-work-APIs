@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable max-len */
 /* eslint-disable import/newline-after-import */
 /* eslint-disable no-tabs */
@@ -22,7 +23,7 @@ app.get('/', (request, response) => {
 app.use('/auth', authRoutes);
 // gif routes
 app.use('/gifs', gifRoutes);
-// gif articles
+// articles routes
 app.use('/articles', articleRoutes);
 
 module.exports = app;
