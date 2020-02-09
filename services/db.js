@@ -96,6 +96,7 @@ const createTables = () => {
   const gifsTable = `CREATE TABLE IF NOT EXISTS
     gifs(
       id SERIAL PRIMARY KEY,
+      cloudinary_id VARCHAR(128) NOT NULL,
       title VARCHAR(128) NOT NULL,
       image_url VARCHAR(128) NOT NULL,
       created_on DATE NOT NULL
