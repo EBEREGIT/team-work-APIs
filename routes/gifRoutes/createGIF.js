@@ -26,8 +26,8 @@ exports.createGIF = (request, reponse) => {
       db.pool.connect((err, client) => {
         const createdOn = new Date().toLocaleString();
         // query
-        const insertQuery = 'INSERT INTO gifs (title, image_url, created_on) VALUES($1,$2,$3) RETURNING *';
-        const values = [data.title, image.url, createdOn];
+        const insertQuery = 'INSERT INTO gifs (cloudinary_id, title, image_url, created_on) VALUES($1,$2,$3,$4) RETURNING *';
+        const values = [image.public_id, data.title, image.secure_url, createdOn];
 
         // execute query
         client.query(insertQuery, values)
