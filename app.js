@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 const authRoutes = require('./routes/authRoutes');
 const gifRoutes = require('./routes/gifRoutes');
 const articleRoutes = require('./routes/articleRoutes');
+const feedRoutes = require('./routes/feedRoutes');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -25,5 +26,7 @@ app.use('/auth', authRoutes);
 app.use('/gifs', gifRoutes);
 // articles routes
 app.use('/articles', articleRoutes);
+// feeds
+app.use('/feed', feedRoutes);
 
 module.exports = app;
