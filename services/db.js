@@ -111,6 +111,44 @@ const createTables = () => {
       console.log(err);
       pool.end();
     });
+
+  // article comment table
+  const articleCommentTable = `CREATE TABLE IF NOT EXISTS
+  articles_comment(
+    id SERIAL PRIMARY KEY,
+    article_id VARCHAR(128) NOT NULL,
+    comment VARCHAR(128) NOT NULL,
+    created_on DATE NOT NULL
+  )`;
+  // article comment table query
+  pool.query(articleCommentTable)
+    .then((res) => {
+      console.log(res);
+      pool.end();
+    })
+    .catch((err) => {
+      console.log(err);
+      pool.end();
+    });
+
+  // gif comment table
+  const gifCommentTable = `CREATE TABLE IF NOT EXISTS
+    gifs_comment(
+      id SERIAL PRIMARY KEY,
+      gif_id VARCHAR(128) NOT NULL,
+      comment VARCHAR(128) NOT NULL,
+      created_on DATE NOT NULL
+    )`;
+  // gif comment table query
+  pool.query(gifCommentTable)
+    .then((res) => {
+      console.log(res);
+      pool.end();
+    })
+    .catch((err) => {
+      console.log(err);
+      pool.end();
+    });
 };
 
 pool.on('remove', () => {
