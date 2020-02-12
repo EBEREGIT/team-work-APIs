@@ -9,6 +9,7 @@ const authRoutes = require('./routes/authRoutes');
 const gifRoutes = require('./routes/gifRoutes');
 const articleRoutes = require('./routes/articleRoutes');
 const feedRoutes = require('./routes/feedRoutes');
+const db = require('./services/db.js');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -18,6 +19,20 @@ app.get('/', (request, response) => {
   response.status(202).send({
     message: 'Welcome to teamwork APIs',
   });
+});
+
+// test db connection
+app.get('/db', async (req, res) => {
+  try {
+    const client = await db.pool.connect();
+    const result = await client.query('SELECT * FROM test_table');
+    const results = { results: (result) ? result.rows : null };
+    res.render('pages/db', results);
+    client.release();
+  } catch (err) {
+    console.error(err);
+    res.send(`Error ${err}`);
+  }
 });
 
 // auth routes
