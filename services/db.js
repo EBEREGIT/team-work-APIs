@@ -3,20 +3,17 @@
 const pg = require('pg');
 
 // configuration details
-// const config = {
-//   user: 'team_work',
-//   database: 'team_work',
-//   password: 'team_work',
-//   port: 5432,
-//   max: 10, // max number of clients in the pool
-//   idleTimeoutMillis: 30000,
-// };
+const config = {
+  user: 'team_work',
+  database: 'team_work',
+  password: 'team_work',
+  port: 5432,
+  max: 10, // max number of clients in the pool
+  idleTimeoutMillis: 30000,
+};
 
 // connect to database
-const pool = new pg.Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: true,
-});
+const pool = new pg.Pool(config);
 
 // display message on success
 pool.on('connect', () => {

@@ -30,7 +30,7 @@ app.get('/db', async (req, res) => {
     res.send({
       message: 'We are in the database!',
       result: results,
-    })
+    });
     client.release();
   } catch (err) {
     console.error(err);
