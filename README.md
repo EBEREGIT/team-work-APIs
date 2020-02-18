@@ -2,14 +2,17 @@
 Teamwork is an internal social network for employees of an organization. The goal of this application is to facilitate more interaction between colleagues and promote team bonding
 
 ## Dependencies
-- Express
-- Cloudinary
-- Node
-- NPM
-- DotENV
-- Postgres
+- [Express](https://www.npmjs.com/package/express)
+- [Cloudinary](https://cloudinary.com/)
+- [Node](http://nodejs.org/)
+- [NPM](https://www.npmjs.com/)
+- [DotENV](https://www.npmjs.com/package/dotenv)
+- [Postgresql](https://www.postgresql.org/)
+- [Node-Postgres](https://node-postgres.com/)
+- [JWT](https://www.npmjs.com/package/jsonwebtoken)
+- [Bcrypt](https://www.npmjs.com/package/bcrypt)
 
-## SETTING UP 
+## Setting Up 
 - Fork this repository
 - Clone the repositury to your machine
 - Open up a terminal
@@ -18,5 +21,5 @@ Teamwork is an internal social network for employees of an organization. The goa
 - Run <code>nodemon index</code> to spin up the server
 - The server runs on port 3000 <code>http://localhost:3000/</code>
 
-## API Documentatio
-- Still in progress...
+## API Documentation
+- In progress...
