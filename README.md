@@ -11,6 +11,7 @@ Teamwork is an internal social network for employees of an organization. The goa
 - [Node-Postgres](https://node-postgres.com/)
 - [JWT](https://www.npmjs.com/package/jsonwebtoken)
 - [Bcrypt](https://www.npmjs.com/package/bcrypt)
+- [Nodemon](https://www.npmjs.com/package/nodemon)
 
 ## Setting Up 
 - Fork this repository
