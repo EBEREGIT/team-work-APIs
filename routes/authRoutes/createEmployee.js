@@ -36,5 +36,10 @@ exports.createEmployee = (request, response) => {
         }
       });
     });
+  }).catch((e) => {
+    response.status(500).send({
+      message: 'failed with a 500',
+      error: e,
+    });
   });
 };

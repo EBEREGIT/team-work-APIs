@@ -9,33 +9,29 @@ const authRoutes = require('./routes/authRoutes');
 const gifRoutes = require('./routes/gifRoutes');
 const articleRoutes = require('./routes/articleRoutes');
 const feedRoutes = require('./routes/feedRoutes');
-const db = require('./services/db.js');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// handle CORS error
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization',
+  );
+  res.setHeader(
+    'Access-Control-Allow-Methods',
+    'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+  );
+  next();
+});
 
 // default route
 app.get('/', (request, response) => {
   response.status(202).send({
     message: 'Welcome to teamwork APIs',
   });
-});
-
-// test db connection
-app.get('/db', async (req, res) => {
-  try {
-    const client = await db.pool.connect();
-    const result = await client.query('SELECT * FROM test_table');
-    const results = { results: (result) ? result.rows : null };
-    res.send({
-      message: 'We are in the database!',
-      result: results,
-    });
-    client.release();
-  } catch (err) {
-    console.error(err);
-    res.send(`Error ${err}`);
-  }
 });
 
 // auth routes
