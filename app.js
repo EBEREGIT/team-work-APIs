@@ -10,8 +10,14 @@ const gifRoutes = require('./routes/gifRoutes');
 const articleRoutes = require('./routes/articleRoutes');
 const feedRoutes = require('./routes/feedRoutes');
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json({ limit: '200mb' }));
+app.use(
+  bodyParser.urlencoded({
+    limit: '200mb',
+    extended: true,
+    parameterLimit: 1000000,
+  }),
+);
 
 // handle CORS error
 app.use((req, res, next) => {
