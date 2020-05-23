@@ -1,22 +1,23 @@
+/* eslint-disable quotes */
 /* eslint-disable linebreak-style */
 /* eslint-disable no-console */
-const pg = require('pg');
+const pg = require("pg");
+require("dotenv").config();
+
+const isProduction = process.env.NODE_ENV === "production";
 
 // configuration details
-const config = {
-  user: 'team_work',
-  database: 'team_work',
-  password: 'team_work',
-  port: 5432,
-  idleTimeoutMillis: 30000,
-};
 
-// connect to database
-const pool = new pg.Pool(config);
+const connectionString = `postgresql://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_DATABASE}`;
 
 // display message on success
-pool.on('connect', () => {
-  console.log('Teamwork Database connected successfully!');
+const pool = new pg.Pool({
+  connectionString: isProduction ? process.env.DATABASE_URL : connectionString,
+  ssl: isProduction,
+});
+
+pool.on("connect", () => {
+  console.log("Teamwork Database connected successfully!");
 });
 
 // create tables here
@@ -101,7 +102,8 @@ const createTables = () => {
       created_on DATE NOT NULL
     )`;
   // gif table query
-  pool.query(gifsTable)
+  pool
+    .query(gifsTable)
     .then((res) => {
       console.log(res);
       pool.end();
@@ -120,7 +122,8 @@ const createTables = () => {
     created_on DATE NOT NULL
   )`;
   // article comment table query
-  pool.query(articleCommentTable)
+  pool
+    .query(articleCommentTable)
     .then((res) => {
       console.log(res);
       pool.end();
@@ -139,7 +142,8 @@ const createTables = () => {
       created_on DATE NOT NULL
     )`;
   // gif comment table query
-  pool.query(gifCommentTable)
+  pool
+    .query(gifCommentTable)
     .then((res) => {
       console.log(res);
       pool.end();
@@ -150,8 +154,8 @@ const createTables = () => {
     });
 };
 
-pool.on('remove', () => {
-  console.log('client removed');
+pool.on("remove", () => {
+  console.log("client removed");
   process.exit(0);
 });
 
@@ -160,4 +164,4 @@ module.exports = {
   pool,
 };
 
-require('make-runnable');
+require("make-runnable");
